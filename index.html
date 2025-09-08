@@ -88,6 +88,24 @@
             white-space: pre-wrap;
             word-break: break-all;
         }
+        .highlight-row {
+            background-color: #FEF3C7; /* amber-100 */
+            transition: background-color 0.3s ease-in-out;
+        }
+        .content-section {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card-hover {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -96,7 +114,10 @@
         <header class="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-10">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center py-4">
-                    <h1 class="text-2xl font-bold text-amber-700">Guía Maestra de BUSCARV</h1>
+                    <div class="flex items-center space-x-3">
+                        <svg class="w-8 h-8 text-amber-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m5.231 13.481L15 17.25m-4.5-15H5.625c-.621 0-1.125.504-1.125 1.125v16.5c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Zm3.75 11.625a2.625 2.625 0 1 1-5.25 0 2.625 2.625 0 0 1 5.25 0Z"/></svg>
+                        <h1 class="text-2xl font-bold text-amber-700">Guía Maestra de BUSCARV</h1>
+                    </div>
                     <nav class="hidden md:flex space-x-6">
                         <button data-tab="inicio" class="tab text-sm font-medium border-b-2 transition-colors duration-200 tab-active">Inicio</button>
                         <button data-tab="fundamentos" class="tab text-sm font-medium border-b-2 transition-colors duration-200 tab-inactive">Fundamentos</button>
@@ -119,18 +140,24 @@
                 </div>
 
                 <div class="mt-12 grid md:grid-cols-3 gap-8 text-center">
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200">
-                        <div class="text-3xl mb-3">🔎</div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 card-hover">
+                        <div class="flex justify-center items-center mb-4 text-amber-600">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"><path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"/></svg>
+                        </div>
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">¿Qué es BUSCARV?</h3>
                         <p class="text-stone-600">Es una función de búsqueda vertical que te permite encontrar un valor específico en la primera columna de una tabla y devolver un dato correspondiente de otra columna en la misma fila.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200">
-                         <div class="text-3xl mb-3">⚙️</div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 card-hover">
+                        <div class="flex justify-center items-center mb-4 text-amber-600">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.325.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.241-.438.613-.43.992a7.723 7.723 0 0 1 0 .255c-.008.378.137.75.43.991l1.004.827c.424.35.534.955.26 1.43l-1.298 2.247a1.125 1.125 0 0 1-1.369.491l-1.217-.456c-.355-.133-.75-.072-1.076.124a6.47 6.47 0 0 1-.22.128c-.331.183-.581.495-.644.869l-.213 1.281c-.09.543-.56.94-1.11.94h-2.594c-.55 0-1.019-.398-1.11-.94l-.213-1.281c-.062-.374-.312-.686-.644-.87a6.52 6.52 0 0 1-.22-.127c-.325-.196-.72-.257-1.076-.124l-1.217.456a1.125 1.125 0 0 1-1.369-.49l-1.297-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.43-.991a6.932 6.932 0 0 1 0-.255c.007-.38-.138-.751-.43-.992l-1.004-.827a1.125 1.125 0 0 1-.26-1.43l1.297-2.247a1.125 1.125 0 0 1 1.37-.491l1.216.456c.356.133.751.072 1.076-.124.072-.044.146-.086.22-.128.332-.183.582-.495.644-.869l.214-1.28Z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/></svg>
+                        </div>
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">¿Por qué es importante?</h3>
                         <p class="text-stone-600">Es la herramienta fundamental para cruzar y consolidar información entre distintas tablas, una tarea esencial en cualquier análisis de datos, desde finanzas hasta logística.</p>
                     </div>
-                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200">
-                         <div class="text-3xl mb-3">🚀</div>
+                    <div class="bg-white p-6 rounded-lg shadow-sm border border-stone-200 card-hover">
+                        <div class="flex justify-center items-center mb-4 text-amber-600">
+                            <svg class="w-12 h-12" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 0 1-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 0 0 6.16-12.12A14.98 14.98 0 0 0 9.631 8.41m5.96 5.96a14.926 14.926 0 0 1-5.841 2.58m-.119-8.54a6 6 0 0 0-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 0 0-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 0 1-2.448-2.448 14.9 14.9 0 0 1 .06-.312m-2.24 2.39a4.493 4.493 0 0 0-1.757 4.306 4.493 4.493 0 0 0 4.306-1.758M16.5 9a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/></svg>
+                        </div>
                         <h3 class="text-xl font-semibold text-stone-800 mb-2">¿Qué aprenderás aquí?</h3>
                         <p class="text-stone-600">No solo a usar BUSCARV, sino a entender su lógica, sus limitaciones y cómo las funciones modernas como BUSCARX superan sus debilidades, preparándote para el futuro de Excel.</p>
                     </div>
@@ -210,10 +237,10 @@
                                 <h4 class="font-semibold mb-2">Tabla de Empleados (Matriz de Búsqueda)</h4>
                                 <table class="w-full border-collapse">
                                     <thead><tr><th class="table-cell table-header">ID_Empleado</th><th class="table-cell table-header">Nombre</th></tr></thead>
-                                    <tbody>
-                                        <tr><td class="table-cell">EMP-01</td><td class="table-cell">Ana Torres</td></tr>
-                                        <tr><td class="table-cell">EMP-02</td><td class="table-cell">Luis Gómez</td></tr>
-                                        <tr><td class="table-cell">EMP-03</td><td class="table-cell">Carla Díaz</td></tr>
+                                    <tbody id="tabla-empleados-body">
+                                        <tr id="emp-row-EMP-01"><td class="table-cell">EMP-01</td><td class="table-cell">Ana Torres</td></tr>
+                                        <tr id="emp-row-EMP-02"><td class="table-cell">EMP-02</td><td class="table-cell">Luis Gómez</td></tr>
+                                        <tr id="emp-row-EMP-03"><td class="table-cell">EMP-03</td><td class="table-cell">Carla Díaz</td></tr>
                                     </tbody>
                                 </table>
                             </div>
@@ -372,27 +399,27 @@
                             <tbody>
                                 <tr>
                                     <td class="table-cell font-semibold">Busca a la izquierda</td>
-                                    <td class="table-cell text-center text-2xl">❌</td>
-                                    <td class="table-cell text-center text-2xl bg-amber-50">✅</td>
-                                    <td class="table-cell text-center text-2xl bg-emerald-50">✅</td>
+                                    <td class="table-cell text-center"><svg class="w-7 h-7 inline-block text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></td>
+                                    <td class="table-cell text-center bg-amber-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
+                                    <td class="table-cell text-center bg-emerald-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell font-semibold">Robusto ante cambios de columnas</td>
-                                    <td class="table-cell text-center text-2xl">⚠️ (Solo con COINCIDIR)</td>
-                                    <td class="table-cell text-center text-2xl bg-amber-50">✅</td>
-                                    <td class="table-cell text-center text-2xl bg-emerald-50">✅</td>
+                                    <td class="table-cell text-center"><svg class="w-7 h-7 inline-block text-amber-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"/></svg></td>
+                                    <td class="table-cell text-center bg-amber-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
+                                    <td class="table-cell text-center bg-emerald-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell font-semibold">Manejo de errores nativo</td>
-                                    <td class="table-cell text-center text-2xl">❌ (Requiere SI.ERROR)</td>
-                                    <td class="table-cell text-center text-2xl bg-amber-50">❌ (Requiere SI.ERROR)</td>
-                                    <td class="table-cell text-center text-2xl bg-emerald-50">✅</td>
+                                    <td class="table-cell text-center"><svg class="w-7 h-7 inline-block text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></td>
+                                    <td class="table-cell text-center bg-amber-50"><svg class="w-7 h-7 inline-block text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></td>
+                                    <td class="table-cell text-center bg-emerald-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell font-semibold">Búsqueda inversa (de abajo hacia arriba)</td>
-                                    <td class="table-cell text-center text-2xl">❌</td>
-                                    <td class="table-cell text-center text-2xl bg-amber-50">❌</td>
-                                    <td class="table-cell text-center text-2xl bg-emerald-50">✅</td>
+                                    <td class="table-cell text-center"><svg class="w-7 h-7 inline-block text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></td>
+                                    <td class="table-cell text-center bg-amber-50"><svg class="w-7 h-7 inline-block text-rose-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12"/></svg></td>
+                                    <td class="table-cell text-center bg-emerald-50"><svg class="w-7 h-7 inline-block text-emerald-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></td>
                                 </tr>
                                 <tr>
                                     <td class="table-cell font-semibold">Facilidad de uso / Sintaxis</td>
@@ -434,6 +461,10 @@
                     sections.forEach(section => {
                         if (section.id === target) {
                             section.classList.remove('hidden');
+                            // Re-apply animation class to trigger it
+                            section.style.animation = 'none';
+                            section.offsetHeight; /* trigger reflow */
+                            section.style.animation = null;
                         } else {
                             section.classList.add('hidden');
                         }
@@ -502,11 +533,31 @@
                 'EMP-03': 'Carla Díaz'
             };
             const cruceSelector = document.getElementById('cruce-selector');
-            cruceSelector.addEventListener('change', (e) => {
-                const selectedId = e.target.value;
+            const empleadosTbody = document.getElementById('tabla-empleados-body');
+
+            function updateCruceDemo() {
+                const selectedId = cruceSelector.value;
+
+                // Update text result
                 document.getElementById('cruce-resultado').textContent = cruceData[selectedId];
                 document.getElementById('cruce-formula').textContent = `=BUSCARV("${selectedId}", [Tabla Empleados], 2, FALSO)`;
-            });
+
+                // Update table highlighting
+                if (empleadosTbody) {
+                    // Remove highlight from all rows
+                    empleadosTbody.querySelectorAll('tr').forEach(row => {
+                        row.classList.remove('highlight-row');
+                    });
+                    // Add highlight to the selected row
+                    const targetRow = document.getElementById(`emp-row-${selectedId}`);
+                    if (targetRow) {
+                        targetRow.classList.add('highlight-row');
+                    }
+                }
+            }
+            cruceSelector.addEventListener('change', updateCruceDemo);
+            // Initial call to set the state
+            updateCruceDemo();
 
             const facturaData = {
                 'CLI-101': { nombre: 'Global Corp', dir: 'Av. Principal 123', tel: '555-1234' },
